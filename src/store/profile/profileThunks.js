@@ -1,15 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axiosInstance from '../../api/axiosInstance';
 
-const API_URL = "http://localhost:5000/api/profile";
+const API_URL = "/profile";
 
 export const fetchProfile = createAsyncThunk(
     'profile/fetch',
     async (_, { rejectWithValue }) => {
         try {
-            const response = await axios.get(API_URL, {
-                withCredentials: true
-            });
+            const response = await axiosInstance.get(API_URL);
             return response.data.data;
         } catch (error) {
             return rejectWithValue(
@@ -23,9 +21,7 @@ export const updateProfile = createAsyncThunk(
     'profile/update',
     async (profileData, { rejectWithValue }) => {
         try {
-            const response = await axios.put(API_URL, profileData, {
-                withCredentials: true
-            });
+            const response = await axiosInstance.put(API_URL, profileData);
             return response.data.data;
         } catch (error) {
             return rejectWithValue(
