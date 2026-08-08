@@ -1,4 +1,4 @@
-import profileImage from "../../../assets/portfolio_img.jpeg";
+import profileImage from "../../../assets/image.png";
 import { FiArrowUpRight } from "react-icons/fi";
 import Button from "../../common/Button";
 import SectionHeading from "../../common/SectionHeading";

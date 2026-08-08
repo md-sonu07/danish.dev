@@ -9,6 +9,7 @@
   --font-display: Inter, sans-serif;
 
   --radius-default: 0.5rem;
+  --radius-md: 0.5rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
@@ -79,6 +80,16 @@ html {
 
 @keyframes blink {
   50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .animate-blob {
