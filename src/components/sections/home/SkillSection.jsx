@@ -13,7 +13,19 @@ import {
     SiExpress,
     SiC,
     SiCplusplus,
+    SiNextdotjs,
+    SiDjango,
+    SiLaravel,
+    SiPhp,
+    SiInertia,
+    SiPython,
+    SiGooglesearchconsole,
+    SiGoogleanalytics,
+    SiOpenai,
+    SiVercel,
+    SiGithub,
 } from "react-icons/si";
+
 
 import SectionHeading from "../../common/SectionHeading";
 import Reveal from "../../common/Reveal";
@@ -45,8 +57,23 @@ const SkillSection = () => {
                     icon: FaBootstrap,
                 },
                 {
-                    name: "React",
+                    name: "React.js",
                     description: "Component-based UI library",
+                    icon: FaReact,
+                },
+                {
+                    name: "Next.js",
+                    description: "React framework for production",
+                    icon: SiNextdotjs,
+                },
+                {
+                    name: "Inertia.js",
+                    description: "Server-driven React apps",
+                    icon: SiInertia,
+                },
+                {
+                    name: "React Native",
+                    description: "Cross-platform mobile apps",
                     icon: FaReact,
                 },
             ],
@@ -70,6 +97,16 @@ const SkillSection = () => {
                     description: "NoSQL database",
                     icon: SiMongodb,
                 },
+                {
+                    name: "Django REST API",
+                    description: "Python REST framework",
+                    icon: SiDjango,
+                },
+                {
+                    name: "Laravel Blade",
+                    description: "PHP templating engine",
+                    icon: SiLaravel,
+                },
             ],
         },
 
@@ -90,6 +127,47 @@ const SkillSection = () => {
                     name: "Java",
                     description: "Backend & OOP",
                     icon: FaJava,
+                },
+                {
+                    name: "Python",
+                    description: "Django & scripting",
+                    icon: SiPython,
+                },
+                {
+                    name: "PHP",
+                    description: "Laravel & web development",
+                    icon: SiPhp,
+                },
+            ],
+        },
+
+        {
+            category: "Tools & Platforms",
+            items: [
+                {
+                    name: "Google Search Console",
+                    description: "SEO & site indexing",
+                    icon: SiGooglesearchconsole,
+                },
+                {
+                    name: "SEO Optimization",
+                    description: "On-page SEO & analytics",
+                    icon: SiGoogleanalytics,
+                },
+                {
+                    name: "ChatGPT",
+                    description: "AI assistant for coding & content",
+                    icon: SiOpenai,
+                },
+                {
+                    name: "Git & GitHub",
+                    description: "Version control & collaboration",
+                    icon: SiGithub,
+                },
+                {
+                    name: "Vercel",
+                    description: "Deploy & hosting",
+                    icon: SiVercel,
                 },
             ],
         },
@@ -120,7 +198,7 @@ const SkillSection = () => {
                                     {category.items.map((skill, skillIdx) => (
                                         <div
                                             key={skillIdx}
-                                            className="bento-card group flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-white/10 bg-white dark:bg-white/5 p-6 shadow-sm hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                                            className="bento-card group flex flex-col gap-4 rounded-lg border border-gray-100 dark:border-white/10 bg-white dark:bg-white/5 p-6 shadow-sm hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                                         >
                                             <div className="text-primary group-hover:scale-110 transition-transform duration-300">
                                                 <skill.icon className="text-3xl" />
