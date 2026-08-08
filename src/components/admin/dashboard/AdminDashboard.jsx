@@ -30,7 +30,7 @@ const AdminDashboard = () => {
       icon: MdTrendingUp,
       color: "emerald",
       description: "Updated this week",
-      to: "/admin/home"
+      to: "/admin/profile"
     },
     {
       title: "Direct Messages",

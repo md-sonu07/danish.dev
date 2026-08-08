@@ -1,37 +1,24 @@
 import { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
 import ProjectCard from "../../common/ProjectCard";
 import { fetchProjects } from "../../../store/project/projectThunks";
 import { clearError } from "../../../store/project/projectSlice";
 
-const ProjectGridSection = () => {
+const ProjectGridSection = ({ category = "All" }) => {
   const dispatch = useDispatch();
-  const location = useLocation();
   const { projects, loading, error } = useSelector((state) => state.projects);
-
-  // Derive selected category from URL hash (e.g., #web-app)
-  const selectedCategory = useMemo(() => {
-    const hash = location.hash.replace("#", "");
-    return hash ? decodeURIComponent(hash) : "all";
-  }, [location.hash]);
 
   useEffect(() => {
     dispatch(fetchProjects());
   }, [dispatch]);
 
   const filteredProjects = useMemo(() => {
-    if (selectedCategory === "all") return projects;
+    if (category === "All") return projects;
 
     return projects.filter((project) =>
-      (project.projectType && project.projectType.toLowerCase().includes(selectedCategory.toLowerCase())) ||
-      project.languages?.some(lang =>
-        lang.toLowerCase().includes(selectedCategory.toLowerCase())
-      ) ||
-      project.title?.toLowerCase().includes(selectedCategory.toLowerCase()) ||
-      project.description?.toLowerCase().includes(selectedCategory.toLowerCase())
+      project.projectType?.toLowerCase().includes(category.toLowerCase())
     );
-  }, [projects, selectedCategory]);
+  }, [projects, category]);
 
   useEffect(() => {
     if (error) {
@@ -80,7 +67,7 @@ const ProjectGridSection = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {filteredProjects.map((project, index) => (
-        <ProjectCard key={project.id || index} {...project} />
+        <ProjectCard key={project.id || index} {...project} index={index} />
       ))}
     </div>
   );

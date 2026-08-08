@@ -1,4 +1,6 @@
 import CurrentFocusBlock from '../../common/CurrentFocusBlock';
+import SectionHeading from '../../common/SectionHeading';
+import Reveal from '../../common/Reveal';
 import { FiLayers } from "react-icons/fi";
 import { TbDatabase } from "react-icons/tb";
 import { RxMobile } from "react-icons/rx";
@@ -30,13 +32,17 @@ const CurrentFocusSection = () => {
     ];
 
     return (
-        <section className="mt-20">
-            <h2
-                className="text-[#111418] dark:text-white text-[28px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6">
-                Current Focus</h2>
+        <section className="py-8">
+            <SectionHeading
+                kicker="Focus"
+                title="Current Focus"
+                description="The areas I'm actively exploring and improving right now."
+            />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {currentFocus.map((value, index) => (
-                    <CurrentFocusBlock key={index} {...value} />
+                    <Reveal key={index} delay={index * 120}>
+                        <CurrentFocusBlock {...value} />
+                    </Reveal>
                 ))}
             </div>
         </section>

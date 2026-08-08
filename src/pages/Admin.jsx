@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { logout } from "../store/auth/authThunks";
 import AdminSidebar from "../components/admin/AdminSidebar";
 import AdminDashboard from "../components/admin/dashboard/AdminDashboard";
 import ProjectIndex from "../components/admin/project/ProjectIndex";
-import HomeIndex from "../components/admin/home/HomeIndex";
-import ResumeDetails from "../components/admin/resume/ResumeDetails";
 import MessageIndex from "../components/admin/message/MessageIndex";
 import ProfileIndex from "../components/admin/profile/ProfileIndex";
 
@@ -31,8 +28,6 @@ const Admin = () => {
               path="/projects"
               element={<ProjectIndex />}
             />
-            <Route path="/home" element={<HomeIndex />} />
-            <Route path="/resume" element={<ResumeDetails />} />
             <Route path="/messages" element={<MessageIndex />} />
             <Route path="/profile" element={<ProfileIndex />} />
           </Routes>

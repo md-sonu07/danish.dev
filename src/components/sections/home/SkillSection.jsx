@@ -15,6 +15,9 @@ import {
     SiCplusplus,
 } from "react-icons/si";
 
+import SectionHeading from "../../common/SectionHeading";
+import Reveal from "../../common/Reveal";
+
 const SkillSection = () => {
 
     const skills = [
@@ -92,37 +95,47 @@ const SkillSection = () => {
         },
     ];
 
-
     return (
-        <section className="pt-10">
-            <div className="flex items-end justify-between mb-8 px-4">
-                <div>
-                    <p className="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-2">Expertise</p>
-                    <h2 className="text-3xl font-bold tracking-tight">Technical Skills</h2>
-                </div>
-            </div>
-            <div className="p-4">
-                {skills.map((category, categoryIdx) => (
-                    <div key={categoryIdx} className="mb-8">
-                        <h3 className="text-lg font-bold text-gray-700 mb-4">{category.category}</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                            {category.items.map((skill, skillIdx) => (
-                                <div
-                                    key={skillIdx}
-                                    className="bento-card flex flex-col gap-4 rounded-xl border border-gray-100 bg-white dark:bg-background-dark p-6 shadow-sm"
-                                >
-                                    <div className="text-primary">
-                                        <skill.icon className="text-3xl" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-base">{skill.name}</h4>
-                                        <p className="text-[#617589] text-xs font-medium">{skill.description}</p>
-                                    </div>
+        <section className="relative py-16 md:py-24 px-2 sm:px-4 overflow-hidden">
+            {/* Decorative background blobs */}
+            {/* <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary/8 rounded-full blur-3xl animate-blob pointer-events-none"></div> */}
+            {/* <div
+                className="absolute -bottom-32 -right-32 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl animate-blob pointer-events-none"
+                style={{ animationDelay: "-8s" }}
+            ></div> */}
+
+            <div className="relative">
+                <SectionHeading
+                    kicker="Expertise"
+                    title="Technical Skills"
+                    description="The technologies I use to design, build, and ship modern web applications."
+                />
+
+                <div className="space-y-8">
+                    {skills.map((category, categoryIdx) => (
+                        <Reveal key={categoryIdx} delay={categoryIdx * 120}>
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-700 dark:text-gray-300 mb-4">{category.category}</h3>
+                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                                    {category.items.map((skill, skillIdx) => (
+                                        <div
+                                            key={skillIdx}
+                                            className="bento-card group flex flex-col gap-4 rounded-xl border border-gray-100 dark:border-white/10 bg-white dark:bg-white/5 p-6 shadow-sm hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                                        >
+                                            <div className="text-primary group-hover:scale-110 transition-transform duration-300">
+                                                <skill.icon className="text-3xl" />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-base text-gray-800 dark:text-gray-200">{skill.name}</h4>
+                                                <p className="text-[#617589] dark:text-gray-500 text-xs font-medium">{skill.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                            </div>
+                        </Reveal>
+                    ))}
+                </div>
             </div>
         </section>
     )

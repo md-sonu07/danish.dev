@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 const ProfileIndex = () => {
     const dispatch = useDispatch();
-    const { data: profile, loading, error, success } = useSelector(
+    const { loading, error, success } = useSelector(
         (state) => state.profile
     );
 
@@ -21,21 +21,22 @@ const ProfileIndex = () => {
     });
 
     useEffect(() => {
-        dispatch(fetchProfile());
+        dispatch(fetchProfile())
+            .unwrap()
+            .then((data) => {
+                if (data) {
+                    setFormData({
+                        email: data.email || "",
+                        phone: data.phone || "",
+                        location: data.location || "",
+                        github: data.github || "",
+                        linkedin: data.linkedin || "",
+                        instagram: data.instagram || "",
+                    });
+                }
+            })
+            .catch(() => {});
     }, [dispatch]);
-
-    useEffect(() => {
-        if (profile) {
-            setFormData({
-                email: profile.email || "",
-                phone: profile.phone || "",
-                location: profile.location || "",
-                github: profile.github || "",
-                linkedin: profile.linkedin || "",
-                instagram: profile.instagram || "",
-            });
-        }
-    }, [profile]);
 
     useEffect(() => {
         if (error) {

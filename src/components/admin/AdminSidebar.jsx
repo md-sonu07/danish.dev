@@ -2,8 +2,6 @@ import { NavLink } from "react-router-dom";
 import {
   MdDashboard,
   MdAdd,
-  MdHome,
-  MdDescription,
   MdLogout,
   MdMenu,
   MdClose,
@@ -24,11 +22,6 @@ const AdminSidebar = ({ onLogout }) => {
       exact: true
     },
     {
-      title: "Home Content",
-      icon: MdHome,
-      path: "/admin/home"
-    },
-    {
       title: "Projects",
       icon: MdAdd,
       path: "/admin/projects"
@@ -37,11 +30,6 @@ const AdminSidebar = ({ onLogout }) => {
       title: "Profile & Contact",
       icon: MdPerson,
       path: "/admin/profile"
-    },
-    {
-      title: "Resume",
-      icon: MdDescription,
-      path: "/admin/resume"
     },
     {
       title: "Messages",

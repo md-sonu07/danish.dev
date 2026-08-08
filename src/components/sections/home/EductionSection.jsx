@@ -1,4 +1,6 @@
 import EductionBlock from '../../common/EductionBlock';
+import SectionHeading from '../../common/SectionHeading';
+import Reveal from '../../common/Reveal';
 
 const EductionSection = () => {
 
@@ -35,20 +37,21 @@ const EductionSection = () => {
         },
     ];
 
-
-
     return (
-        <section className="pt-24 px-4">
-            <div className="mb-10">
-                <p className="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-2">Career</p>
-                <h2 className="text-3xl font-bold tracking-tight">Education</h2>
-            </div>
-            <div
-                className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-linear-to-b before:from-transparent before:via-gray-200 before:to-transparent">
-                    {EduExperience.map((value, index) => (
-                        <EductionBlock key={index} {...value} />
-                    ))}
-            </div>
+        <section className="py-16 md:py-24 px-2 sm:px-4">
+            <SectionHeading
+                kicker="Career"
+                title="Education"
+                description="The academic foundation behind my development journey."
+            />
+            <Reveal>
+                <div
+                    className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-linear-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                        {EduExperience.map((value, index) => (
+                            <EductionBlock key={index} {...value} />
+                        ))}
+                </div>
+            </Reveal>
         </section>
     )
 }

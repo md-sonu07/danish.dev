@@ -13,7 +13,7 @@ export const login = createAsyncThunk(
       } else {
         return rejectWithValue('Invalid password');
       }
-    } catch (error) {
+    } catch {
       return rejectWithValue('Login failed. Please try again.');
     }
   }
@@ -26,7 +26,7 @@ export const logout = createAsyncThunk(
     try {
       localStorage.removeItem('isAdminAuthenticated');
       return { success: true };
-    } catch (error) {
+    } catch {
       return rejectWithValue('Logout failed');
     }
   }
@@ -39,7 +39,7 @@ export const checkAuthStatus = createAsyncThunk(
     try {
       const authStatus = localStorage.getItem('isAdminAuthenticated');
       return { isAuthenticated: authStatus === 'true' };
-    } catch (error) {
+    } catch {
       return rejectWithValue('Failed to check authentication status');
     }
   }

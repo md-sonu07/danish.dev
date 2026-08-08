@@ -10,15 +10,22 @@ import {
 // Helper function to transform project data - optimized
 const transformProject = (project) => {
   if (!project) return null;
-  
+
   return {
     id: project._id || project.id,
     languages: project.languages || [],
     title: project.title || '',
     projectImage: project.projectImage || '',
     description: project.description || '',
-    demoLink: [project.demoLink?.text || "Live Demo", project.demoLink?.url || ''],
-    githubLink: [project.githubLink?.text || "Code", project.githubLink?.url || '']
+    projectType: project.projectType || 'Web Project',
+    demoLink:
+      typeof project.demoLink === 'object' && project.demoLink
+        ? project.demoLink.url || ''
+        : project.demoLink || '',
+    githubLink:
+      typeof project.githubLink === 'object' && project.githubLink
+        ? project.githubLink.url || ''
+        : project.githubLink || '',
   };
 };
 

@@ -1,36 +1,65 @@
-import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import NavLogo from "../common/NavLogo";
-import Button from "../common/Button";
+import { MdMenu, MdClose } from "react-icons/md";
 
 import portfolioImage from "../../assets/portfolio_img.jpeg";
 
 const Navbar = () => {
-  const navLinks = ["About", "Projects", "Resume", "Contact"];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  const handleLinkClick = () => setIsMenuOpen(false);
 
   return (
     <nav className="sticky top-0 z-50 w-full glass-nav px-6 md:px-10 py-4">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <NavLogo />
-        <div className="hidden md:flex flex-1 justify-center gap-10">
-          {navLinks.map((link, idx) => (
-            <NavLink
-              key={idx}
-              to={`/${link.toLowerCase()}`}
-              className={({ isActive }) =>
-                `${isActive ? "text-primary" : ""} text-sm font-bold hover:text-primary text-gray-700 transition-colors`
-              }
+        <div className="hidden md:flex flex-1 justify-end gap-10">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-bold hover:text-primary text-gray-700 dark:text-gray-300 transition-colors"
             >
-              {link}
-            </NavLink>
+              {link.label}
+            </a>
           ))}
         </div>
         <div className="flex items-center gap-4">
-          <div
-            className="size-10 ring-2 ring-primary/30 rounded-full border-2 border-primary/20 bg-cover bg-center"
-            style={{ backgroundImage: `url(${portfolioImage})` }}
-          ></div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <MdClose className="text-2xl" /> : <MdMenu className="text-2xl" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden mt-4 pt-3 pb-2 border-t border-gray-100 dark:border-slate-800">
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="px-3 py-3 rounded-lg text-sm font-bold text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-50 dark:hover:bg-slate-800/60 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

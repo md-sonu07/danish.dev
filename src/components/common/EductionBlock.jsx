@@ -24,7 +24,7 @@ const EductionBlock = ({
                 <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">{organization}
                 </div>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                    {description}
+                    {Array.isArray(description) ? description.join(" · ") : description}
                 </p>
             </div>
         </div>

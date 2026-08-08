@@ -23,10 +23,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const result = await dispatch(login(password)).unwrap();
-      if (result.success) navigate("/admin");
-    } catch { }
+    const result = await dispatch(login(password))
+      .unwrap()
+      .catch(() => null);
+    if (result?.success) navigate("/admin");
   };
 
   return (

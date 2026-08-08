@@ -35,7 +35,7 @@ const NotFound = () => {
           <Link to="/">
             <Button text="Back to Homepage" iconPosition="right" icon={GrFormPreviousLink} className="rounded-lg h-12 px-6 bg-primary text-white text-base" />
           </Link>
-          <Link to="/projects">
+          <Link to="/#projects">
             <Button text="View Projects" className="rounded-lg h-12 px-6 border-2 border-primary/20 dark:border-gray-700 text-primary dark:text-primary text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/5 transition-all" />
           </Link>
         </div>
