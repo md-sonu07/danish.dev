@@ -2,8 +2,6 @@ import { useState } from "react";
 import NavLogo from "../common/NavLogo";
 import { MdMenu, MdClose } from "react-icons/md";
 
-import portfolioImage from "../../assets/portfolio_img.jpeg";
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

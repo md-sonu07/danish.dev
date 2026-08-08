@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { sendMessage } from '../../../store/message/messageThunks';
-import { resetStatus } from '../../../store/message/messageSlice';
-import { toast } from 'react-hot-toast';
+import React, { useState } from 'react';
 import { MdEmail, MdPhone, MdLocationOn, MdSend } from 'react-icons/md';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
 import SectionHeading from '../../common/SectionHeading';
 import Reveal from '../../common/Reveal';
+import { profileData } from '../../../data/portfolioData';
 
 const ContactSection = () => {
-  const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.message);
-  const { data: profile } = useSelector((state) => state.profile);
+  const profile = profileData;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -20,28 +15,18 @@ const ContactSection = () => {
     message: ''
   });
 
-  useEffect(() => {
-    if (error) {
-      toast.error(error.error || 'Something went wrong. Please try again.');
-    }
-  }, [error]);
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(sendMessage(formData))
-      .unwrap()
-      .then(() => {
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        toast.success('Message delivered! I will get back to you soon.');
-        dispatch(resetStatus());
-      })
-      .catch((err) => {
-        toast.error(err?.error || err?.message || 'Something went wrong. Please try again.');
-      });
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -75,7 +60,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Email me at</p>
-                      <p className="text-lg font-bold">{profile?.email || 'Loading...'}</p>
+                      <p className="text-lg font-bold">{profile.email}</p>
                     </div>
                   </div>
 
@@ -85,7 +70,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Call me at</p>
-                      <p className="text-lg font-bold">{profile?.phone || 'Loading...'}</p>
+                      <p className="text-lg font-bold">{profile.phone}</p>
                     </div>
                   </div>
 
@@ -95,20 +80,20 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Location</p>
-                      <p className="text-lg font-bold">{profile?.location || 'Loading...'}</p>
+                      <p className="text-lg font-bold">{profile.location}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="pt-12 flex gap-6 relative z-10">
-                <a href={profile?.github || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-indigo-600 hover:border-indigo-600 transition-all duration-300">
+                <a href={profile.github || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-indigo-600 hover:border-indigo-600 transition-all duration-300">
                   <FaGithub />
                 </a>
-                <a href={profile?.linkedin || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-blue-600 hover:border-blue-600 transition-all duration-300">
+                <a href={profile.linkedin || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-blue-600 hover:border-blue-600 transition-all duration-300">
                   <FaLinkedin />
                 </a>
-                <a href={profile?.instagram || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-pink-600 hover:border-pink-600 transition-all duration-300">
+                <a href={profile.instagram || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-pink-600 hover:border-pink-600 transition-all duration-300">
                   <FaInstagram />
                 </a>
               </div>
@@ -174,17 +159,10 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-6 rounded-2xl flex items-center justify-center gap-4 font-black text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-indigo-500/10 disabled:opacity-50"
+                  className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-6 rounded-2xl flex items-center justify-center gap-4 font-black text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-indigo-500/10"
                 >
-                  {loading ? (
-                    <div className="w-5 h-5 border-2 border-slate-400 border-t-white animate-spin rounded-full"></div>
-                  ) : (
-                    <>
-                      <MdSend className="text-xl" />
-                      <span>Dispatch Message</span>
-                    </>
-                  )}
+                  <MdSend className="text-xl" />
+                  <span>Dispatch Message</span>
                 </button>
               </form>
             </div>

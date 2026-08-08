@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedinIn, FaInstagram, FaReact, FaNodeJs } from "react-ic
 import { SiMongodb } from "react-icons/si";
 import { MdCode, MdDevices, MdVerified } from "react-icons/md";
 import Button from "../../common/Button";
-import { useSelector } from "react-redux";
+import { profileData } from "../../../data/portfolioData";
 
 const ROLES = [
   "Full-Stack Developer",
@@ -15,7 +15,6 @@ const ROLES = [
 ];
 
 const HeroSection = () => {
-  const { data: profile } = useSelector((state) => state.profile);
   const [roleIndex, setRoleIndex] = useState(0);
   const [typed, setTyped] = useState("");
   const [deleting, setDeleting] = useState(false);
@@ -42,9 +41,9 @@ const HeroSection = () => {
   }, [typed, deleting, roleIndex]);
 
   const socials = [
-    { icon: FaGithub, url: profile?.github || "#", label: "GitHub" },
-    { icon: FaLinkedinIn, url: profile?.linkedin || "#", label: "LinkedIn" },
-    { icon: FaInstagram, url: profile?.instagram || "#", label: "Instagram" },
+    { icon: FaGithub, url: profileData.github || "#", label: "GitHub" },
+    { icon: FaLinkedinIn, url: profileData.linkedin || "#", label: "LinkedIn" },
+    { icon: FaInstagram, url: profileData.instagram || "#", label: "Instagram" },
   ];
 
   const highlights = [

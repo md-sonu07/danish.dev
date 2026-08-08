@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import ProjectHeadingSection from "./ProjectHeadingSection";
 import ProjectFilterSection from "./ProjectFilterSection";
 import ProjectGridSection from "./ProjectGridSection";
+import { projectsData } from "../../../data/portfolioData";
 
 const ProjectsSection = () => {
-  const { projects } = useSelector((state) => state.projects);
+  const projects = projectsData;
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (

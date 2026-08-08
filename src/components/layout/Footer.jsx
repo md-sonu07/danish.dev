@@ -1,24 +1,22 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaArrowUp } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { profileData } from "../../data/portfolioData";
 
 const Footer = () => {
-  const { data: profile } = useSelector((state) => state.profile);
-
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: profile?.linkedin || "https://www.linkedin.com/in/md-sonu-b369a632a/",
+      url: profileData.linkedin || "https://www.linkedin.com/in/md-sonu-b369a632a/",
       icon: FaLinkedinIn,
     },
     {
       name: "GitHub",
-      url: profile?.github || "https://github.com/md-sonu07",
+      url: profileData.github || "https://github.com/md-sonu07",
       icon: FaGithub,
     },
     {
       name: "Instagram",
-      url: profile?.instagram || "https://www.instagram.com/danish_farhan07/",
+      url: profileData.instagram || "https://www.instagram.com/danish_farhan07/",
       icon: FaInstagram,
     },
   ];
@@ -93,7 +91,7 @@ const Footer = () => {
       <div className="border-t border-gray-100 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-500 dark:text-gray-400">
-            &copy; {new Date().getFullYear()} Danish.dev &bull; Built with React, Node &amp; MongoDB
+            &copy; {new Date().getFullYear()} Danish.dev &bull; Built with React &amp; Tailwind CSS
           </p>
           <button
             onClick={scrollToTop}

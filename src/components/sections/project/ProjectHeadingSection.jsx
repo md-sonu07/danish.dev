@@ -1,9 +1,9 @@
 import { HiOutlineFolder } from "react-icons/hi";
-import { useSelector } from "react-redux";
 import SectionHeading from "../../common/SectionHeading";
+import { projectsData } from "../../../data/portfolioData";
 
 const ProjectHeadingSection = () => {
-  const { projects } = useSelector((state) => state.projects);
+  const projects = projectsData;
   const projectCount = projects?.length || 0;
 
   return (
