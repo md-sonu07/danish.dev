@@ -10,8 +10,12 @@ import { profileData } from "../../../data/portfolioData";
 const ROLES = [
   "Full-Stack Developer",
   "MERN Stack Specialist",
-  "Frontend Enthusiast",
-  "Problem Solver",
+  "UI/UX Craftsman",
+  "React.js Enthusiast",
+  "Clean Code Advocate",
+  "Creative Problem Solver",
+  "Open Source Contributor",
+  "Lifelong Learner",
 ];
 
 const HeroSection = () => {
@@ -53,17 +57,12 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative py-16 md:py-28 overflow-hidden">
-      {/* Decorative background blobs */}
-      {/* <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob pointer-events-none"></div> */}
-      {/* <div
-        className="absolute -bottom-24 -left-24 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl animate-blob pointer-events-none"
-        style={{ animationDelay: "-7s" }}
-      ></div> */}
+    <section className="relative pt-8 pb-16 md:pt-18 md:pb-28 overflow-hidden">
+
 
       <div className="relative flex flex-col-reverse lg:flex-row items-center gap-14">
         {/* Left Column */}
-        <div className="flex-1 flex flex-col gap-8">
+        <div className="flex-1 flex flex-col gap-4">
           <div className="inline-flex items-center gap-2.5 w-fit px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold tracking-wide">
             <span className="relative flex size-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
@@ -74,7 +73,7 @@ const HeroSection = () => {
 
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.1] tracking-tight text-[#111418] dark:text-white">
-              Hi, I'm <span className="text-gradient">Danish</span>.
+              Hi, I'm <span className="text-gradient">Md Sonu</span> also known as <span className="text-gradient">Danish</span>.
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-600 dark:text-gray-300 min-h-[3rem] sm:min-h-[2.5rem]">
               {(typed || !deleting) && <span className="text-primary font-black">&gt; </span>}{typed}
@@ -88,7 +87,7 @@ const HeroSection = () => {
           </div>
 
           {/* Highlights */}
-          <div className="flex flex-wrap gap-4 max-w-xl">
+          <div className="flex flex-wrap gap-4 py-4 max-w-xl">
             {highlights.map((h) => (
               <div
                 key={h.label}
