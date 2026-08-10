@@ -61,7 +61,7 @@ const HeroSection = () => {
         style={{ animationDelay: "-7s" }}
       ></div> */}
 
-      <div className="relative flex flex-col lg:flex-row items-center gap-14">
+      <div className="relative flex flex-col-reverse lg:flex-row items-center gap-14">
         {/* Left Column */}
         <div className="flex-1 flex flex-col gap-8">
           <div className="inline-flex items-center gap-2.5 w-fit px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold tracking-wide">
@@ -76,7 +76,7 @@ const HeroSection = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.1] tracking-tight text-[#111418] dark:text-white">
               Hi, I'm <span className="text-gradient">Danish</span>.
             </h1>
-            <p className="text-xl md:text-2xl font-bold text-gray-600 dark:text-gray-300 min-h-[2.5rem]">
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-600 dark:text-gray-300 min-h-[3rem] sm:min-h-[2.5rem]">
               {(typed || !deleting) && <span className="text-primary font-black">&gt; </span>}{typed}
               <span className="cursor-blink text-primary">|</span>
             </p>
@@ -88,14 +88,16 @@ const HeroSection = () => {
           </div>
 
           {/* Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl">
+          <div className="flex flex-wrap gap-4 max-w-xl">
             {highlights.map((h) => (
               <div
                 key={h.label}
-                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 shadow-sm"
+                className="flex items-center gap-3 text-gray-700 dark:text-gray-300 group"
               >
-                <h.icon className="text-xl text-primary shrink-0" />
-                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">{h.label}</span>
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <h.icon className="text-sm text-primary" />
+                </div>
+                <span className="text-sm font-bold">{h.label}</span>
               </div>
             ))}
           </div>

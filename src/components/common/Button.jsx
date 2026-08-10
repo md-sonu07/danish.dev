@@ -9,7 +9,7 @@ const Button = ({
     return (
         <button
             onClick={onClick}
-            className={`inline-flex text-nowrap items-center gap-2 cursor-pointer text-sm font-bold rounded-lg transition-all ${className}`}
+            className={`inline-flex text-nowrap items-center gap-2 cursor-pointer text-sm font-bold rounded-md transition-all ${className}`}
             >
 
             {iconPosition === "right" && Icon && (

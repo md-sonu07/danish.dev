@@ -6,7 +6,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "LinkedIn",
-      url: profileData.linkedin || "https://www.linkedin.com/in/md-sonu-b369a632a/",
+      url: profileData.linkedin || "https://www.linkedin.com/in/md-sonu/",
       icon: FaLinkedinIn,
     },
     {

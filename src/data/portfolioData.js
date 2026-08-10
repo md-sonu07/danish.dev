@@ -4,7 +4,7 @@ export const profileData = {
   phone: "+91 9142387621",
   location: "Araria, Bihar, India",
   github: "https://github.com/md-sonu07",
-  linkedin: "https://www.linkedin.com/in/md-sonu-b369a632a/",
+  linkedin: "https://www.linkedin.com/in/md-sonu/",
   instagram: "https://www.instagram.com/danish_farhan07/",
 };
 

@@ -55,52 +55,52 @@ const ContactSection = () => {
         />
 
         <Reveal>
-        <div className="grid lg:grid-cols-12 gap-12 relative">
+        <div className="grid lg:grid-cols-12 gap-8 relative">
           {/* Contact Details Card */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="bg-slate-900 rounded-4xl p-10 text-white relative overflow-hidden h-full flex flex-col justify-between">
+            <div className="bg-slate-900 rounded-lg py-6 px-4 md:p-8 text-white relative overflow-hidden h-full flex flex-col justify-between">
               <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
 
-              <div className="space-y-12 relative z-10">
-                <div className="space-y-2">
+              <div className="space-y-8 relative z-10">
+                <div className="space-y-2 text-center">
                   <h3 className="text-3xl font-black tracking-tight">Contact Information</h3>
                   <p className="text-slate-400 font-bold">Say hello via these channels.</p>
                 </div>
 
-                <div className="space-y-8">
-                  <div className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-indigo-500 transition-colors">
-                      <MdEmail className="text-2xl text-indigo-400" />
+                <div className="flex flex-col items-start p-4 space-y-6">
+                  <div className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-indigo-500 transition-colors shrink-0">
+                      <MdEmail className="text-xl text-indigo-400" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Email me at</p>
-                      <p className="text-lg font-bold">{profile.email}</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Email me at</p>
+                      <p className="text-sm sm:text-base font-bold break-all">{profile.email}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-indigo-500 transition-colors">
-                      <MdPhone className="text-2xl text-indigo-400" />
+                  <div className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-indigo-500 transition-colors shrink-0">
+                      <MdPhone className="text-xl text-indigo-400" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Call me at</p>
-                      <p className="text-lg font-bold">{profile.phone}</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Call me at</p>
+                      <p className="text-sm sm:text-base font-bold">{profile.phone}</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-6 group">
-                    <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-indigo-500 transition-colors">
-                      <MdLocationOn className="text-2xl text-indigo-400" />
+                  <div className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-indigo-500 transition-colors shrink-0">
+                      <MdLocationOn className="text-xl text-indigo-400" />
                     </div>
                     <div>
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Location</p>
-                      <p className="text-lg font-bold">{profile.location}</p>
+                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Location</p>
+                      <p className="text-sm sm:text-base font-bold">{profile.location}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-12 flex gap-6 relative z-10">
+              <div className="pt-8 flex justify-center gap-4 relative z-10">
                 <a href={profile.github || '#'} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl hover:bg-indigo-600 hover:border-indigo-600 transition-all duration-300">
                   <FaGithub />
                 </a>
@@ -116,7 +116,7 @@ const ContactSection = () => {
 
           {/* Contact Form Card */}
           <div className="lg:col-span-7">
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-4xl p-10 shadow-sm relative overflow-hidden">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 lg:p-10 shadow-sm relative overflow-hidden">
               <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-3">
@@ -174,7 +174,7 @@ const ContactSection = () => {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-6 rounded-2xl flex items-center justify-center gap-4 font-black text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-indigo-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 py-6 rounded-lg flex items-center justify-center gap-4 font-black text-sm uppercase tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-indigo-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === 'sending' ? (
                     <div className="w-5 h-5 border-2 border-slate-400 border-t-white animate-spin rounded-full"></div>

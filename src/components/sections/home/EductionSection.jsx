@@ -46,7 +46,7 @@ const EductionSection = () => {
             />
             <Reveal>
                 <div
-                    className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-linear-to-b before:from-transparent before:via-gray-200 before:to-transparent">
+                    className="relative space-y-12 md:before:absolute md:before:inset-0 md:before:mx-auto md:before:translate-x-0 md:before:h-full md:before:w-0.5 md:before:bg-linear-to-b md:before:from-transparent md:before:via-gray-200 md:before:to-transparent">
                         {EduExperience.map((value, index) => (
                             <EductionBlock key={index} {...value} />
                         ))}
