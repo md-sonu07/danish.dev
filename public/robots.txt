@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://danishdev.in/sitemap.xml
