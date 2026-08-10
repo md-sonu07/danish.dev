@@ -58,8 +58,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative pt-8 pb-16 md:pt-18 md:pb-28 overflow-hidden">
-
-
       <div className="relative flex flex-col-reverse lg:flex-row items-center gap-14">
         {/* Left Column */}
         <div className="flex-1 flex flex-col gap-4">

@@ -5,7 +5,6 @@ import {
     FaNodeJs,
     FaGitAlt,
     FaGithub,
-    FaNpm,
     FaShieldAlt,
     FaDatabase,
     FaBootstrap,
