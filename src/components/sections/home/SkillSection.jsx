@@ -59,7 +59,7 @@ const SkillSection = () => {
                 { name: "HTML5", description: "Semantic markup", icon: FaHtml5 },
                 { name: "CSS3", description: "Styling & layouts", icon: FaCss3Alt },
                 { name: "Python", description: "Django & scripting", icon: SiPython },
-                { name: "Java", description: "Backend & OOP", icon: FaJava },
+                // { name: "Java", description: "Backend & OOP", icon: FaJava },
                 { name: "C", description: "Low-level programming", icon: SiC },
                 { name: "C++", description: "Object-oriented programming", icon: SiCplusplus },
                 { name: "PHP", description: "Laravel & web development", icon: SiPhp },
