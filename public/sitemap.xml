@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://danishdev.in/</loc>
-    <lastmod>2024-05-20</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://danishdev.in/portfolio_img.jpeg</image:loc>
+      <image:title>Danish Farhan - Full-Stack Developer</image:title>
+      <image:caption>Danish Farhan Portfolio Profile Picture</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://danishdev.in/og_img.png</image:loc>
+      <image:title>Danish.dev Cover Preview</image:title>
+      <image:caption>Danish.dev Portfolio Preview Banner</image:caption>
+    </image:image>
   </url>
 </urlset>
